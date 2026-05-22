@@ -46,3 +46,41 @@
   background: #FF0070;
   margin-left: 10px ;
 }
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  border-color: #FF0070;
+  width: 25px;
+  height: 25px;
+  right: 10px;
+  top: 10px;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  border-color: #FF0070;
+  width: 25px;
+  height: 25px;
+  bottom: 10px;
+  left: 10px;
+}
+
+.title {
+  font-family: 'IBM Plex Mono', ;
+  font-weight: bold;
+  font-size: 116px;
+  line-height: 82.5%;
+  color: #DB00FF;
+  text-shadow: 4px 4px 0px #FF0070;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+}
