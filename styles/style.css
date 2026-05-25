@@ -28,21 +28,21 @@
 .header__theme-menu-list{
   display: flex;
   flex-direction: column;
-  padding-right: 10px ;
   gap:10px;
+  padding-right: 10px ;
 }
 
 .header__theme-menu-button {
+  border: none;
+  color: var(--accent-color);
   font-family: 'IBM Plex mono';
-  font-style: normal;
   font-weight: normal;
   font-size: 18px;
+  font-style: normal;
   line-height: 100%;
   text-align: center;
-  color: var(--accent-color);
-  background-color: transparent;
   text-transform: lowercase;
-  border: none;
+  background-color: transparent;
 }
 
 .header__theme-menu-item:last-child .header__theme-menu-button {
@@ -52,11 +52,11 @@
 
 .label {
   position: absolute;
-  display: flex ;
-  align-items: center ;
   top: 10px;
   right: 19px;
-  color: #FF0070;
+  display: flex ;
+  align-items: center ;
+  color: var(--accent-color);
   font-family: 'IBM Plex mono', monospace;
   font-weight: 400;
   font-size: 18px;
@@ -68,10 +68,10 @@
   content: "";
   width: 9px;
   height: 9px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 4px 2px #FF0070;
-  background: #FF0070;
   margin-left: 10px ;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  background: var(--accent-color);
 }
 
 .decorated-zone {
@@ -81,52 +81,147 @@
 .decorated-zone::after {
   content: "";
   position: absolute;
-  border-width: 1px 1px 0px 0px;
-  border-style: solid;
-  border-color: #FF0070;
+  top: 10px;
+  right: 10px;
   width: 25px;
   height: 25px;
-  right: 10px;
-  top: 10px;
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  border-color: var(--accent-color);
 }
 
 .decorated-zone::before {
   content: "";
   position: absolute;
-  border-width: 0 0 1px 1px;
-  border-style: solid;
-  border-color: #FF0070;
-  width: 25px;
-  height: 25px;
   bottom: 10px;
   left: 10px;
+  width: 25px;
+  height: 25px;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  border-color: var(--accent-color);
 }
 
 .title {
+  color: var(--title-color);
   font-family: 'IBM Plex mono', monospace;
   font-weight: bold;
-  font-size: 116px;
-  line-height: 82.5%;
-  color: #DB00FF;
-  text-shadow: 4px 4px 0 var(--accent-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .description {
+  grid-column: 1/-1;
   grid-row:3;
+  justify-self: center;
+  width: 355px;
+  height: 95px;
   font-family: 'IBM Plex mono', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 130%;
+}
+
+.title-decor {
+  color: #000028;
+  background-color: var(--accent-color);
+}
+
+main {
+    background-color: var(--bg-color);
+}
+
+.cards {
+  width: 355px;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  margin-top: 40px;
+  color: var(--text-color);
+  font-family: 'IBM Plex mono', monospace;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 130%;
+
+}
+
+.head {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title_sec {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.accent_title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.focus__title {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.link:focus {
+  outline:none;
+}
+
+.link:focus-visible {
+  outline:1px solid var(--outline-color);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.title_gallery {
+  font-family: 'IBM Plex mono';
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 130%;
-  color: #000028;
-  height: 117px;
-  width: 355px;
-  grid-column: 1/-1;
-  justify-self: center;
-  
+
 }
 
-.title-decor {
-  background-color: var(--accent-color);
+.gallery__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer {
+  display: flex;
+  height: 100vh;
+  min-height: 668px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_title {
+  text-shadow: 2px 2px 0px var(--accent-color);
 }
