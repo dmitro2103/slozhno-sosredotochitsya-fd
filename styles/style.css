@@ -1,7 +1,6 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  background-color: var(--bg-color);
   background-image: var(--bg-img);
   background-repeat: no-repeat;  
   background-position: center;
@@ -44,11 +43,6 @@
   text-align: center;
   text-transform: lowercase;
   background-color: transparent;
-}
-
-.header__theme-menu-item:last-child .header__theme-menu-button {
-  border: 1px solid var(--accent-color);
-
 }
 
 .label {
@@ -130,6 +124,11 @@
   background-color: var(--accent-color);
 }
 
+.main{
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
 .cards {
   display: flex;
   flex-direction: column;
@@ -142,8 +141,7 @@
   font-size: 18px;
   font-style: normal;
   line-height: 130%;
-
-
+  background-color: var(--bg-color);
 }
 
 .head {
@@ -227,6 +225,23 @@
   text-shadow: 2px 2px 0px var(--accent-color);
 }
 
+.header__theme-menu-button_active {
+  pointer-events: none;
+  border: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:focus{
+  outline:none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom:1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid rgba(255, 0, 112, 0.4);
+}
+
 @media (width>=768px) {
   .title {
     grid-column: 1/-1;
@@ -279,7 +294,7 @@
   
   .ice {
     grid-column: 3;
-    grid-row: 2 / 4  ; 
+    grid-row: 2 / 4 ; 
 
   }
   
