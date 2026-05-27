@@ -190,6 +190,10 @@
   outline: 1px solid var(--outline-color);
 }
 
+.link:hover {
+  text-decoration: underline;
+}
+
 .focus__title {
   font-weight: normal;
   font-size: 18px;
@@ -237,6 +241,7 @@
   height: 100vh;
   min-height: 668px;
   margin-top: 40px;
+  background-color: var(--bg-color);
 }
 
 .footer_title {
