@@ -1,6 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  background-color: var(--bg-color);
   background-image: var(--bg-img);
   background-repeat: no-repeat;
   background-position: center;
@@ -8,13 +9,17 @@
   background-attachment: fixed;
 }
 
+.main {
+  background-color: var(--bg-color);
+}
+
 .header {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(50%, 1fr));
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr min-content 1fr;
   height: 100vh;
   min-height: 668px;
+  padding: 0 10px;
 }
 
 .header__theme-menu {
@@ -27,7 +32,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-right: 10px;
 }
 
 .header__theme-menu-button {
@@ -41,6 +45,7 @@
   text-align: center;
   text-transform: lowercase;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .label {
@@ -107,9 +112,7 @@
 .description {
   grid-column: 1/-1;
   grid-row: 3;
-  justify-self: center;
-  width: 355px;
-  height: 95px;
+  align-self: center;
   font-family: "IBM Plex mono", monospace;
   font-weight: bold;
   font-size: 18px;
@@ -122,24 +125,22 @@
   background-color: var(--accent-color);
 }
 
-.main {
-  width: 100%;
-  background-color: var(--bg-color);
-}
-
 .cards {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 355px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 50px;
   color: var(--text-color);
   font-family: "IBM Plex mono", monospace;
   font-size: 18px;
   font-style: normal;
   line-height: 130%;
-  background-color: var(--bg-color);
+}
+
+.reason {
+  margin-top: 40px;
 }
 
 .head {
@@ -162,6 +163,7 @@
 }
 
 .accent_title {
+  height: min-content;
   font-weight: bold;
   font-size: 18px;
   line-height: 130%;
@@ -189,8 +191,7 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  gap: 10px;
 }
 
 .title_gallery {
@@ -204,7 +205,6 @@
 .gallery__image {
   display: block;
   width: 100%;
-  height: auto;
   height: 100%;
   object-fit: cover;
 }
@@ -215,10 +215,16 @@
   align-items: center;
   height: 100vh;
   min-height: 668px;
+  margin-top: 40px;
 }
 
 .footer_title {
   text-shadow: 2px 2px 0px var(--accent-color);
+  color: var(--title-color);
+  font-family: "IBM Plex mono", monospace;
+  font-weight: bold;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
 }
 
 .header__theme-menu-button_active {
@@ -239,25 +245,75 @@
 }
 
 @media (width>=768px) {
+
   .title {
     grid-column: 1/-1;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    margin-left: -20px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 60px;
   }
 
   .description {
     grid-column: 2;
   }
 
+  .header {
+    padding: 20px;
+  }
+
+  .decorated-zone::before {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .decorated-zone::after {
+    top: 20px;
+    right: 20px;
+  }
+
+  .label {
+    top: 20px;
+    right: 29px;
+  }
+
   .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: min-content 1fr;
     width: 100%;
     min-width: 768px;
     margin: initial;
-    margin: 80px auto 0;
-    margin-top: 80px;
     padding-right: 20px;
     padding-left: 20px;
+  }
+
+  .focus.cards {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .focus .head {
+    grid-column: 1 / 2;
+    margin: 0;
+  }
+  .focus-wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 3;
+    gap: 20px;
+  }
+  /* Убираем лишние стили для карточек, чтобы они не конфликтовали */
+  .focus .card {
+    grid-column: auto;
+    justify-self: stretch;
   }
 
   .card {
@@ -270,18 +326,18 @@
     justify-self: center;
   }
 
-  .accent_title {
-    height: min-content;
-  }
-
   .gallery {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: min-content repeat(3, 1fr);
+    grid-template-rows: repeat(4, min-content);
+    gap: 20px;
   }
 
   .title_gallery {
-    grid-column: 1/4;
-    height: min-content;
+    grid-column: 1/-1;
+  }
+
+  .footer {
+    margin-top: 60px;
   }
 
   .sunset {
@@ -289,30 +345,45 @@
   }
 
   .ice {
-    grid-column: 3;
-    grid-row: 2 / 4;
+    grid-column: -1/-2;
+    grid-row: 2/4;
   }
 
   .tape {
-    grid-row: 3/5;
+    grid-row: -1/-3;
   }
 
   .street {
-    grid-column: 2/4;
+    grid-column: -1/-3;
   }
 }
 
+  .footer_title {
+     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
 @media (width>=1024px) {
+  
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+
+  }
+
+  .header {
+    height: 100vh;
+    min-height: 768px;
+  }
+
   .header__theme-menu {
     grid-column: 1/-1;
     justify-self: center;
     align-self: start;
-    padding-top: 20px;
   }
 
   .header__theme-menu-list {
     display: flex;
     flex-direction: row;
+    gap:20px;
   }
 
   .description {
