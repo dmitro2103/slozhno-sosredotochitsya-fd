@@ -5,5 +5,10 @@
   --title-color: #db00ff;
   --text-color: #f1b2ce;
   --outline-color: white;
+  --head-color: var(--accent-color);
+  --title-sec-color: #000028;
+  --header-menu-button-color: var(--accent-color);
+  --header-menu-button-hover-border: rgba(255, 0, 112, 0.4);
+  --focus-visible-border: var(--accent-color);
+  --decor-color:var(--accent-color)
 }
-
